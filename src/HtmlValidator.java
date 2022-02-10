@@ -53,22 +53,10 @@ public class HtmlValidator {
     public void removeAll(String element) {
         if (element == null) throw new IllegalArgumentException();
         tags.removeIf(tag -> tag.getElement().equalsIgnoreCase(element));
-        /*
-        Or, more simply for 227...
-
-        Queue<HtmlTag> filteredTags = new LinkedList<>();
-        for (HtmlTag tag : tags) {
-            if (!tag.getElement().equalsIgnoreCase(element)) {
-                filteredTags.add(tag);
-            }
-        }
-        tags = filteredTags;
-        */
     }
 
     /**
      * Print formatted HTML based on the content of the HtmlValidator. The output is indented according to tag depth.
-     *
      * Unexpected and unclosed tags are printed as error messages at 0 depth
      */
     public void validate() {
